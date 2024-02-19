@@ -18,7 +18,7 @@ post_User.post("/createUser", async (req, res) => {
     }
 
     // Check if both userName and password are provided
-    if (!userName || !password) {
+    if (!userName || !password) { 
       return res.status(400).send("Both userName and password are required.");
     }
 
