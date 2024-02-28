@@ -3,21 +3,23 @@ const mongoose = require('mongoose');
 //creating schema
 const timeWallSchema = mongoose.Schema({
     name: {
-        type: String,
-        requied: true,
+        type: String
     },
+    category: {
+        type: String,
+    },
+
     thumbnail: {
-        type:String,
-        requied:true,
+        type: String,
+        default: 'thumbnail',
     },
     video: {
-        type:String,
-        requied:true,
+        type: String,
     },
     date: {
-        type:Date,
-        default:Date.now()
+        type: Date,
+        default: Date.now()
     }
 })
 
-module.exports=mongoose.model("time_Wall", timeWallSchema)
+module.exports = mongoose.model("time_Wall", timeWallSchema)
