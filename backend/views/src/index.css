@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+th,td{
+    border: 1px solid gray; 
+    border-collapse: collapse;
+}
+td{
+    text-wrap: wrap;
+}
+.category-chart:nth-child(1){
+    background: rgba(35, 31, 31, 0.11);
+}
+*{
+    box-sizing: border-box;
+}
