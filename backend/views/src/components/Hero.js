@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Categories from "./Categories";
 import TopBar from "./TopBar";
 import CopyRight from "./CopyRight";
+import Timewall from "./TimeWall";
 
 function Hero() {
   return (
@@ -17,7 +18,8 @@ function Hero() {
         <div className=" bg-gray-200 h-screen p-3">
           <div><h1 className=" font-Montserrat font-light text-xl uppercase  ">Time Wall</h1></div>
           <div>
-            <Categories />
+            {/* <Categories /> */}
+            <Timewall/>
           </div>
         </div>
         <div>
