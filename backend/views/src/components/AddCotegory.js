@@ -7,6 +7,7 @@ function AddCategory({ onClose }) {
     const [description, setDescription] = useState('');
     const [add, setAdd] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [responseData,setResponseData]=useState('')
 
     useEffect(() => {
         const service = async () => {
@@ -17,26 +18,33 @@ function AddCategory({ onClose }) {
                 formData.append('description', description);
                 formData.append('status', status);
                 formData.append('date', '');
-console.log(formData)
+                console.log(formData)
                 try {
                     const response = await postServices(formData);
-                    console.log("Response:", response.data);
+                    console.log("Response:", response);
+              setResponseData(response)
                     // Add any further processing if needed
                 } catch (error) {
                     console.error("Error:", error);
                     // Handle error here (e.g., display error message)
-                } finally {
-                    setLoading(false);
-                }
+                } 
             }
         };
-
+        
         service();
     }, [add]);
-
+    
     const handleClose = (e) => {
         e.preventDefault();
+        console.log("first")
         setAdd(true);
+        if (responseData === "Category added successfully!") {
+            setLoading(false)
+            alert("data added successfully!")
+            console.log("DDDD")
+            onClose()
+        }
+   
     };
 
     return (
@@ -62,8 +70,8 @@ console.log(formData)
                             <textarea id="Description" className='border-[1px] border-slate-400 p-3  w-100 min-h-[40px] max-h-[80px]' minLength={2} value={description} onChange={(e) => setDescription(e.target.value)} />
                         </fieldset>
                         <div className='pt-10'>
-                            <button type='submit' className='w-[80px]  bg-blue-600 text-white  pl-3 pr-3 pt-2 pb-2 rounded-md hover:bg-slate-500 hover:font-bold ' disabled={loading}>
-                                {loading ? 'Adding...' : 'Add'}
+                            <button type='submit' className='w-[80px]  bg-blue-600 text-white  pl-3 pr-3 pt-2 pb-2 rounded-md hover:bg-slate-500 hover:font-bold '>
+                              {loading ? "Adding.." :  "Add"} .
                             </button>
                         </div>
                     </form>
