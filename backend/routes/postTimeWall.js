@@ -11,7 +11,7 @@ postTimeWall.use(uploadMiddleware);
 postTimeWall.post("/addTimeWall", async (req, res) => {
     try {
         const { name, category, date } = req.body;
-        
+
         // Ensure req.files exists and has at least two files
         if (!req.files || Object.keys(req.files).length < 2) {
             return res.status(400).json({ error: "Video and thumbnail files are required." });
@@ -20,14 +20,12 @@ postTimeWall.post("/addTimeWall", async (req, res) => {
         const videoFile = req.files.video[0]; // Access the first file in the 'video' array
         const thumbnailFile = req.files.thumbnail[0]; // Access the first file in the 'thumbnail' array
 
-        
-         await timeWallModel.create({
+        await timeWallModel.create({
             name,
             category,
             video: videoFile.filename,
             thumbnail: thumbnailFile.filename,
             date,
-       
         });
 
         res.status(201).send("Time Wall has been created successfully!");

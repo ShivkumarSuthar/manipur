@@ -4,6 +4,7 @@ import Categories from "./Categories";
 import TopBar from "./TopBar";
 import CopyRight from "./CopyRight";
 import Timewall from "./TimeWall";
+import Dashboard from "./Dashboard";
 
 function Hero() {
   return (
@@ -19,7 +20,8 @@ function Hero() {
           <div><h1 className=" font-Montserrat font-light text-xl uppercase  ">Time Wall</h1></div>
           <div>
             {/* <Categories /> */}
-            <Timewall/>
+            {/* <Timewall/> */}
+            <Dashboard/>
           </div>
         </div>
         <div>

@@ -35,8 +35,10 @@ function TimeWallList() {
                     <tr key={index} className='category-chart'>
                         <td className='p-2 text-start'>{index + 1}</td>
                         <td className='p-2 text-start'>{category.name}</td>
+                        <td className='p-2 text-start'>{category.status}</td>
                         <td className='p-2 text-start'>{category.description}</td>
                         <td className='p-2 text-start'>{category.status}</td>
+
                         <td className='p-2 text-start'>{category.dateTime}</td>
                         <td className='p-2 text-start'>
                             <div>
